@@ -1,0 +1,30 @@
+To initalize npm 
+    npm init -y (-y is optional, it init with decault values)
+Install Parcel using npm (parcel is a bundler)
+    npm install -D parcel
+Install react and ReactDOM 
+    npm install react react-dom
+
+To run app or launch the app
+    npx parcel index.html / npx parcel build index.html
+    --npx is for execute and npm is for commander
+    --parcel is a bundler and index.html is an entry point
+What is transitive dependency
+    One dependency on another dependencies called transitive dependency
+
+Parcel Features
+    Create a server
+    HMR Hot Module Replacement
+    File Watcher Algorithm --C++
+    Bundling/Minification
+    Code Cleaning
+    Dev and Prod build
+    Super Fast Build Algorithm
+    Caching
+    Compression
+    Compatible with older version of browser
+    HTTPS on devDependenciesPort Number
+    Consistent Hashing Algorithm
+    Zero Configuration
+    and many more...
+    

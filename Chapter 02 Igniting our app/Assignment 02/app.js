@@ -1,3 +1,6 @@
+import React from "react";
+import ReactDOM from "react-dom/client";
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 const eleHeader1 = React.createElement("h1", { key: "h1" }, "Header One");
 const eleHeader2 = React.createElement("h1", { key: "h2" }, "Header Two");
