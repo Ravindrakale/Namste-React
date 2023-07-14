@@ -72,9 +72,16 @@ body {
 .icon-star {
   padding: 0 5px;
 }
-.mt-10{
+.mt-10 {
   margin-bottom: 10px;
 }
-.search-txt{
+.search-txt {
   margin-right: 10px;
+}
+.shimmer-image {
+  height: 100%;
+}
+.shimmer-image img {
+  height: 100%;
+  width: 100%;
 }

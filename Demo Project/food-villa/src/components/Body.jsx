@@ -1,26 +1,41 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import RestaurantCard from "./RestaurantCard";
-import Restaurants from "../data/restaurants.json";
+import Shimmer from "./Shimmer";
 
 function Body() {
   const [searchTxt, setSearchTxt] = useState("");
-  const [restaurants, setRestaurants] = useState(Restaurants);
+  const [allRestaurants, setAllRestaurants] = useState([]);
+  const [filteredRestaurants, setFilteredRestaurants] = useState([]);
 
-  const filterRestaurants = () => {
-    if (searchTxt) {
-      setRestaurants(
-        Restaurants.filter((rest) => rest?.data?.name?.toLowerCase().includes(searchTxt.toLowerCase()))
+  const filterRestaurantsHandler = () => {
+    if (searchTxt && allRestaurants?.length) {
+      setFilteredRestaurants(
+        allRestaurants.filter((rest) =>
+          rest?.data?.name?.toLowerCase().includes(searchTxt.toLowerCase())
+        )
       );
-    } else {
-      setRestaurants(Restaurants);
+    } else if (allRestaurants) {
+      setFilteredRestaurants(allRestaurants);
     }
   };
-
+  const fetchRestaurantData = async () => {
+    const response = await fetch(
+      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=18.5642382&lng=73.77694319999999&page_type=DESKTOP_WEB_LISTING"
+    );
+    const rests = await response.json();
+    const restaurantList = rests?.data?.cards[2]?.data?.data?.cards;
+    setAllRestaurants(restaurantList);
+    setFilteredRestaurants(restaurantList);
+  };
   const onSearchChange = (e) => {
     setSearchTxt(e.target.value);
   };
 
-  return (
+  useEffect(() => {
+    fetchRestaurantData();
+  }, []);
+
+  return allRestaurants?.length ? (
     <>
       <div className="mt-10">
         <input
@@ -30,11 +45,11 @@ function Body() {
           value={searchTxt}
           onChange={onSearchChange}
         />
-        <button onClick={filterRestaurants}>Search</button>
+        <button onClick={filterRestaurantsHandler}>Search</button>
       </div>
       <div className="app-body">
-        {restaurants?.length ? (
-          restaurants.map((rest) => {
+        {filteredRestaurants?.length ? (
+          filteredRestaurants.map((rest) => {
             return <RestaurantCard key={rest.data.uuid} {...rest.data} />;
           })
         ) : (
@@ -42,6 +57,8 @@ function Body() {
         )}
       </div>
     </>
+  ) : (
+    <Shimmer />
   );
 }
 
