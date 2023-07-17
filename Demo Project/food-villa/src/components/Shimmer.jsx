@@ -5,9 +5,9 @@ function Shimmer() {
   return (
     <div className="app-body">
       {Array(15)
-        .fill()
-        .map(() => (
-          <div className="restaurant-card">
+        .fill("")
+        .map((item, inx) => (
+          <div key={inx} className="restaurant-card">
             <div className="shimmer-image">
               <img src={shimmer}></img>
             </div>

@@ -85,3 +85,7 @@ body {
   height: 100%;
   width: 100%;
 }
+.rest-card-link{
+  text-decoration: none;
+  color: inherit;
+}

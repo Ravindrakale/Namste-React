@@ -1,20 +1,27 @@
 import React, { useState } from "react";
 import mainLogo from "../../public/images/food-villa.jpg";
+import { Link } from "react-router-dom";
 
 function Header() {
   const [userLoggedin, setUserLoggedin] = useState(false);
   return (
     <div className="app-header">
       <div>
-        <a href="/">
+        <Link to="/">
           <img src={mainLogo} alt="Food Villa"></img>
-        </a>
+        </Link>
       </div>
       <div>
         <ul className="nav-menu">
-          <li>Home</li>
-          <li>About</li>
-          <li>Contact</li>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/about">About</Link>
+          </li>
+          <li>
+            <Link to="/contact">Contact</Link>
+          </li>
         </ul>
       </div>
       <div>

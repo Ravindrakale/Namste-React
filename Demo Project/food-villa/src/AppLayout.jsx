@@ -1,13 +1,14 @@
 import React from "react";
-import { Header, Body, Footer } from "./components";
+import { Outlet } from "react-router-dom";
+import { Header, Footer } from "./components";
 
 function AppLayout() {
   return (
-    <>
+    <div className='app-container'>
       <Header />
-      <Body />
+      <Outlet />
       <Footer />
-    </>
+    </div>
   );
 }
 
