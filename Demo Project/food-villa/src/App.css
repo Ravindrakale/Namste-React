@@ -89,3 +89,22 @@ body {
   text-decoration: none;
   color: inherit;
 }
+.rest-details{
+  border: 1px solid black;
+  margin-bottom: 10px;
+  min-height: 50px;
+}
+.menu-detail{
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid forestgreen;
+}
+.menu-detail img{
+  padding: 5px;
+  height: 140px;
+  width: 200px;
+  border-radius: 10px;
+}
+.menu-title{
+  padding-left: 10px;
+}
