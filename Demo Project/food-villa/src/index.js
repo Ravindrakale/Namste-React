@@ -1,5 +1,12 @@
 import ReactDOM from "react-dom/client";
-import { About, Body, Contact, Error, RestaurantDetail } from "./components";
+import {
+  About,
+  Body,
+  Contact,
+  Error,
+  Profile,
+  RestaurantDetail,
+} from "./components";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import AppLayout from "./AppLayout";
 import "./App.css";
@@ -18,6 +25,12 @@ const appRouter = createBrowserRouter([
       {
         path: "/about",
         element: <About />,
+        children: [
+          {
+            path: "profile",
+            element: <Profile />,
+          },
+        ],
       },
       {
         path: "/contact",

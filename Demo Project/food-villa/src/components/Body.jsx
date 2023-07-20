@@ -23,14 +23,18 @@ function Body() {
       "https://www.swiggy.com/dapi/restaurants/list/v5?lat=18.5642382&lng=73.77694319999999&page_type=DESKTOP_WEB_LISTING"
     );
     const rests = await response.json();
-    const restaurantList = rests?.data?.cards[2]?.data?.data?.cards;
-    setAllRestaurants(restaurantList);
-    setFilteredRestaurants(restaurantList);
+    if (rests?.data?.cards?.length) {
+      const cards = rests?.data?.cards?.find(
+        (card) => card?.cardType === "seeAllRestaurants"
+      );
+      const restaurantList = cards?.data?.data?.cards;
+      setAllRestaurants(restaurantList);
+      setFilteredRestaurants(restaurantList);
+    }
   };
   const onSearchChange = (e) => {
     setSearchTxt(e.target.value);
   };
-
   useEffect(() => {
     fetchRestaurantData();
   }, []);
