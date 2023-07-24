@@ -3,7 +3,6 @@ import ReactDOM from "react-dom/client";
 import { About, Body, Contact, Error, Profile } from "./components";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import AppLayout from "./AppLayout";
-import "./App.css";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
