@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import mainLogo from "../../public/images/food-villa.jpg";
 import { Link } from "react-router-dom";
+import useIsOnline from "../hooks/useIsOnline";
 
 function Header() {
   const [userLoggedin, setUserLoggedin] = useState(false);
+  const isOnline = useIsOnline();
   return (
     <div className="app-header">
       <div>
@@ -30,6 +32,7 @@ function Header() {
         ) : (
           <button onClick={() => setUserLoggedin(true)}>Log In</button>
         )}
+        {isOnline ? <h1> 🟢 : On line</h1> : <h1> 🔴: Off Line</h1>}
       </div>
     </div>
   );

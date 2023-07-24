@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import RestaurantCard from "./RestaurantCard";
 import Shimmer from "./Shimmer";
+import useRestaurants from "../hooks/useRestaurants";
 
 function Body() {
   const [searchTxt, setSearchTxt] = useState("");
-  const [allRestaurants, setAllRestaurants] = useState([]);
+  const allRestaurants = useRestaurants();
   const [filteredRestaurants, setFilteredRestaurants] = useState([]);
 
   const filterRestaurantsHandler = () => {
@@ -18,26 +19,12 @@ function Body() {
       setFilteredRestaurants(allRestaurants);
     }
   };
-  const fetchRestaurantData = async () => {
-    const response = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=18.5642382&lng=73.77694319999999&page_type=DESKTOP_WEB_LISTING"
-    );
-    const rests = await response.json();
-    if (rests?.data?.cards?.length) {
-      const cards = rests?.data?.cards?.find(
-        (card) => card?.cardType === "seeAllRestaurants"
-      );
-      const restaurantList = cards?.data?.data?.cards;
-      setAllRestaurants(restaurantList);
-      setFilteredRestaurants(restaurantList);
-    }
-  };
   const onSearchChange = (e) => {
     setSearchTxt(e.target.value);
   };
   useEffect(() => {
-    fetchRestaurantData();
-  }, []);
+    setFilteredRestaurants(allRestaurants);
+  }, [allRestaurants]);
 
   return allRestaurants?.length ? (
     <>

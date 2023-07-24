@@ -1,51 +1,10 @@
-import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import emptyMenu from "../../../public/images/menu.jpg";
+import useRestaurantDetail from "../../hooks/useRestaurantDetail";
 
 const RestaurantDetail = () => {
   const { id } = useParams();
-  const [menuItems, setMenuItems] = useState([]);
-  useEffect(() => {
-    fetchRestaurantDetails();
-  }, []);
-
-  const fetchRestaurantDetails = async () => {
-    const response = await fetch(
-      `https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=18.5642382&lng=73.77694319999999&restaurantId=${id}&submitAction=ENTER`
-    );
-    const restDetails = await response.json();
-    const menuCards =
-      restDetails?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards;
-    if (menuCards?.length) {
-      const menus = menuCards.reduce((menuItms, item) => {
-        if (item?.card?.card?.categories?.length) {
-          const catMenus = item?.card?.card?.categories.reduce(
-            (catMenuItms, catItem) => {
-              if (catItem?.itemCards?.length) {
-                const innerMenus = catItem?.itemCards?.map((innerMenuItm) => {
-                  return innerMenuItm?.card?.info;
-                });
-                catMenuItms = catMenuItms.concat(innerMenus);
-              }
-              return catMenuItms;
-            },
-            []
-          );
-          menuItms = menuItms.concat(catMenus);
-        } else if (item?.card?.card?.itemCards?.length) {
-          const innerMenus = item?.card?.card?.itemCards?.map(
-            (innerMenuItm) => {
-              return innerMenuItm?.card?.info;
-            }
-          );
-          menuItms = menuItms.concat(innerMenus);
-        }
-        return menuItms;
-      }, []);
-      console.log(menus);
-      setMenuItems(menus);
-    }
-  };
+  const menuItems = useRestaurantDetail(id);
 
   return (
     <div className="rest-details">
