@@ -1,10 +1,18 @@
 import { useParams } from "react-router-dom";
 import emptyMenu from "../../../public/images/menu.jpg";
 import useRestaurantDetail from "../../hooks/useRestaurantDetail";
+import { useDispatch } from "react-redux";
+import { addItem } from "../../utils/cartSlice";
 
 const RestaurantDetail = () => {
   const { id } = useParams();
   const menuItems = useRestaurantDetail(id);
+
+  const dispatch = useDispatch();
+
+  const handleAddItemToCart = (item) => {
+    dispatch(addItem(item));
+  };
 
   return (
     <div className="rest-details">
@@ -31,17 +39,23 @@ const RestaurantDetail = () => {
               <div className="styles_itemDesc__3vhM0">{menu?.description}</div>
             </div>
             <div className="styles_itemImageContainer__3Czsd">
-              <div>
-                <img
-                  alt={menu?.name}
-                  className="styles_itemImage__3CsDL"
-                  src={
-                    menu?.imageId
-                      ? "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit/" +
-                        menu?.imageId
-                      : emptyMenu
-                  }
-                ></img>
+              <img
+                alt={menu?.name}
+                className="styles_itemImage__3CsDL"
+                src={
+                  menu?.imageId
+                    ? "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit/" +
+                      menu?.imageId
+                    : emptyMenu
+                }
+              ></img>
+              <div
+                className="add-button"
+                onClick={() =>
+                  handleAddItemToCart({ id: menu?.id, name: menu?.name })
+                }
+              >
+                ADD
               </div>
             </div>
           </div>

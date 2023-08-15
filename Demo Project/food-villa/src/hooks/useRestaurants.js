@@ -7,9 +7,10 @@ const useRestaurants = () => {
     const rests = await fetchRestaurantList();
     if (rests?.data?.cards?.length) {
       const cards = rests?.data?.cards?.find(
-        (card) => card?.cardType === "seeAllRestaurants"
+        (card) => card?.card?.card?.id === "restaurant_grid_listing"
       );
-      const restaurantList = cards?.data?.data?.cards;
+      const restaurantList =
+        cards?.card?.card?.gridElements?.infoWithStyle?.restaurants;
       setAllRestaurants(restaurantList);
     }
   };

@@ -41,7 +41,7 @@ function Body() {
       <div className="app-body">
         {filteredRestaurants?.length ? (
           filteredRestaurants.map((rest) => {
-            return <RestaurantCard key={rest.data.uuid} {...rest.data} />;
+            return <RestaurantCard key={rest.info.id} {...rest.info} />;
           })
         ) : (
           <div className="mt-10">No Restaurant Found.</div>

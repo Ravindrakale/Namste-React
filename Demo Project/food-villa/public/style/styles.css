@@ -1,110 +1,164 @@
 body {
-    background-color: blanchedalmond;
-  }
-  .app-body {
-    display: flex;
-    flex-wrap: wrap;
-  }
-  .app-header {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px;
-    border: 1px solid black;
-    margin-bottom: 10px;
-  }
-  .app-header img {
-    height: 100px;
-    width: 100px;
-    border-radius: 10px;
-  }
-  .nav-menu {
-    display: flex;
-    list-style-type: none;
-    align-items: center;
-  }
-  .nav-menu li {
-    margin: 10px;
-  }
-  .app-footer {
-    height: 50px;
-    border: 1px solid black;
-    display: flex;
-    justify-content: center;
-    font-size: 20px;
-    padding: 10px;
-    align-items: center;
-    cursor: default;
-  }
-  .restaurant-card {
-    border: 1px solid black;
-    height: 250px;
-    width: 255px;
-    padding: 10px;
-    margin: 0 10px 10px 0;
-  }
-  .restaurant-card img {
-    height: 150px;
-    width: 100%;
-  }
-  .restaurant-name {
-    font-size: 17px;
-    font-weight: 500;
-    word-break: break-word;
-  }
-  .restaurant-address {
-    color: #686b78;
-    font-size: 13px;
-    margin-top: 4px;
-  }
-  .restaurant-other-details {
-    display: flex;
-    align-items: center;
-    margin-top: 18px;
-    font-size: 12px;
-    justify-content: space-between;
-    color: #535665;
-  }
-  .restaurant-rettings {
-    background-color: #db7c38;
-    color: #fff;
-    padding: 5px;
-  }
-  .icon-star {
-    padding: 0 5px;
-  }
-  .mt-10 {
-    margin-bottom: 10px;
-  }
-  .search-txt {
-    margin-right: 10px;
-  }
-  .shimmer-image {
-    height: 100%;
-  }
-  .shimmer-image img {
-    height: 100%;
-    width: 100%;
-  }
-  .rest-card-link{
-    text-decoration: none;
-    color: inherit;
-  }
-  .rest-details{
-    border: 1px solid black;
-    margin-bottom: 10px;
-    min-height: 50px;
-  }
-  .menu-detail{
-    display: flex;
-    justify-content: space-between;
-    border-bottom: 1px solid forestgreen;
-  }
-  .menu-detail img{
-    padding: 5px;
-    height: 140px;
-    width: 200px;
-    border-radius: 10px;
-  }
-  .menu-title{
-    padding-left: 10px;
-  }
+  background-color: blanchedalmond;
+}
+.app-body {
+  display: flex;
+  flex-wrap: wrap;
+}
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  border: 1px solid black;
+  margin-bottom: 10px;
+}
+.app-header img {
+  height: 100px;
+  width: 100px;
+  border-radius: 10px;
+}
+.nav-menu {
+  display: flex;
+  list-style-type: none;
+  align-items: center;
+}
+.nav-menu li {
+  margin: 10px;
+}
+.app-footer {
+  height: 50px;
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  font-size: 20px;
+  padding: 10px;
+  align-items: center;
+  cursor: default;
+}
+.restaurant-card {
+  border: 1px solid black;
+  height: 250px;
+  width: 255px;
+  padding: 10px;
+  margin: 0 10px 10px 0;
+}
+.restaurant-card img {
+  height: 150px;
+  width: 100%;
+}
+.restaurant-name {
+  font-size: 17px;
+  font-weight: 500;
+  word-break: break-word;
+}
+.restaurant-address {
+  color: #686b78;
+  font-size: 13px;
+  margin-top: 4px;
+}
+.restaurant-other-details {
+  display: flex;
+  align-items: center;
+  margin-top: 18px;
+  font-size: 12px;
+  justify-content: space-between;
+  color: #535665;
+}
+.restaurant-rettings {
+  background-color: #db7c38;
+  color: #fff;
+  padding: 5px;
+}
+.icon-star {
+  padding: 0 5px;
+}
+.mt-10 {
+  margin-bottom: 10px;
+}
+.search-txt {
+  margin-right: 10px;
+}
+.shimmer-image {
+  height: 100%;
+}
+.shimmer-image img {
+  height: 100%;
+  width: 100%;
+}
+.rest-card-link {
+  text-decoration: none;
+  color: inherit;
+}
+.rest-details {
+  border: 1px solid black;
+  margin-bottom: 10px;
+  min-height: 50px;
+}
+.menu-detail {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid forestgreen;
+}
+.menu-detail img {
+  padding: 5px;
+  height: 140px;
+  width: 200px;
+  border-radius: 10px;
+}
+.menu-title {
+  padding-left: 10px;
+}
+.instamart-section {
+  border: 1px solid black;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+.title-section {
+  display: flex;
+  justify-items: center;
+}
+.title-section-border {
+  border-bottom: 1px solid #db7c38;
+}
+.title-section button {
+  max-height: 22px;
+  margin-top: 5px;
+  margin-left: 10px;
+}
+
+.title-section h3 {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+.add-button {
+  cursor: pointer;
+  position: absolute;
+  left: 91%;
+  margin-top: 9%;
+  transform: translateX(-50%);
+  width: 96px !important;
+  height: 36px !important;
+  box-shadow: 0 3px 8px #e9e9eb;
+  border-radius: 4px;
+  display: inline-block;
+  border: 1px solid #d4d5d9;
+  color: #60b246;
+  font-size: 0.9rem;
+  font-weight: 600;
+  line-height: 30px;
+  position: absolute;
+  text-align: center;
+  background-color: #fff;
+}
+.cart-container {
+  border: 1px solid #686b78;
+  padding: 10px;
+  width: 40%;
+}
+.cart-item-container {
+  border-top: 1px solid #60b246;
+}
+.menu-items {
+  display: flex;
+  justify-content: space-between;
+}

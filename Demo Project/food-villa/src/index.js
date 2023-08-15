@@ -6,7 +6,12 @@ import AppLayout from "./AppLayout";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
-const RestaurantDetail = lazy(() => import("./components/restaurant/RestaurantDetail"));
+const RestaurantDetail = lazy(() =>
+  import("./components/restaurant/RestaurantDetail")
+);
+const InstamartDetails = lazy(() =>
+  import("./components/instamart/InstamartDetails")
+);
 
 const appRouter = createBrowserRouter([
   {
@@ -39,6 +44,14 @@ const appRouter = createBrowserRouter([
       {
         path: "/contact",
         element: <Contact />,
+      },
+      {
+        path: "/instamart",
+        element: (
+          <Suspense fallback={<h3>Suspense fallback...</h3>}>
+            <InstamartDetails />
+          </Suspense>
+        ),
       },
     ],
   },

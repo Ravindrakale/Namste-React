@@ -1,4 +1,5 @@
 import React from "react";
+import UserContext from "../utils/UserContext";
 class Profile extends React.Component {
   constructor(props) {
     super(props);
@@ -13,6 +14,7 @@ class Profile extends React.Component {
     console.log("Update");
   }
   render() {
+    let {user} = this.context;
     return (
       <div>
         <h3>Profile Component</h3>
@@ -26,11 +28,12 @@ class Profile extends React.Component {
           >
             +
           </button>
+          <div>{JSON.stringify(user)}</div>
         </div>
         <div>{this.props.name}</div>
-        <div>{JSON.stringify(this.props.address)}</div>
       </div>
     );
   }
 }
+Profile.contextType = UserContext;
 export default Profile;
