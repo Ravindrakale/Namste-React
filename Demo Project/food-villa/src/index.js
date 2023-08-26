@@ -13,7 +13,6 @@ const InstamartDetails = lazy(() =>
   import("./components/instamart/InstamartDetails")
 );
 
-
 const appRouter = createBrowserRouter([
   {
     path: "/",
